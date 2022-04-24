@@ -3,22 +3,22 @@
 #define INCLUDE_TPQUEUE_H_
 
 template<typename T>
+class TPQueue {
+ private:
   struct ITEM {
     T data;
     ITEM* next;
   };
-
- private:
-  ITEM* jump;
+  ITEM* first_o;
 
  public:
-  TPQueue():head(nullptr),tail(nullptr){};
+  TPQueue():first_o(nullptr){};
 
-  void push(const T& value) {
-    ITEM* first = jump;
+  void push(T value) {
+    ITEM* first = first_o;
     if (first == nullptr) {
       first = new ITEM;
-      head = first;
+      first_o = first;
       first->value = data;
       first->next = nullptr;
     } else {
@@ -26,7 +26,7 @@ template<typename T>
         temp->value = data;
         if (head->value.prior < temp->value.prior) {
           temp->next = first;
-          head = temp;
+          first_o = temp;
           return;
         }
         while (first != nullptr) {
@@ -44,10 +44,10 @@ template<typename T>
   }
   T pop() {
     ITEM *first = nullptr;
-    first = jump;
+    first = first_o;
     if (first != nullptr) {
         T extract = first->data;
-        jump = first->next;
+        first_o = first->next;
         return extract;
     } else {
         throw "Empty!";;
