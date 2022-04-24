@@ -5,23 +5,17 @@
 template<typename T>
   struct ITEM {
     T data;
-    ITEM * next;
+    ITEM* next;
   };
+
  private:
-  ITEM *head;
-  ITEM *tail;
+  ITEM* jump;
 
  public:
-  TPQueue():head(nullptr),tail(nullptr){}
-  ~TPQueue();
-  void push(const T&);
-  T pop();
+  TPQueue():head(nullptr),tail(nullptr){};
 
-  bool isEmpty() {
-    return head.isEmpty();
-  }
-  void push(const T&value) {
-    ITEM* first = head;
+  void push(const T& value) {
+    ITEM* first = jump;
     if (first == nullptr) {
       first = new ITEM;
       head = first;
@@ -50,10 +44,10 @@ template<typename T>
   }
   T pop() {
     ITEM *first = nullptr;
-    first = head;
+    first = jump;
     if (first != nullptr) {
         T extract = first->data;
-        head = first->next;
+        jump = first->next;
         return extract;
     } else {
         throw "Empty!";;
