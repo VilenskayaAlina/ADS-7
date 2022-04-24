@@ -61,14 +61,6 @@ template<typename T>
   }
 };
 
-template<typename T>
-  typename TPQueue<T>::ITEM* TPQueue<T>::create(const T& data) {
-    ITEM *item=new ITEM;
-    item−>data=data;
-    item−>next=nullptr;
-    return item;
-  }
-
 struct SYM {
   char ch;
   int prior;
