@@ -33,11 +33,8 @@ class TPQueue {
           //prov1 = first->data.prior;
           //prov2 = temp->data.prior;
           //prov3 = first->next; //соответствие
-          if (((first->data.prior) == (temp->data.prior) &&
-               ((first->next) == nullptr || (first->data.prior) < (temp->data.prior))) ||
-              ((first->data.prior) > (temp->data.prior) &&
-               (((first->next) != nullptr && first->next->data.prior < (temp->data.prior))
-                || ((first->next) == nullptr)))) {
+          if (((first->data.prior) >= (temp->data.prior) &&
+        ((first->next) == nullptr || (first->data.prior) < (temp->data.prior)))) {
             temp->next = first->next;
             first->next = temp;
             return;
