@@ -24,7 +24,7 @@ class TPQueue {
     } else {
         ITEM* temp = new ITEM;
         temp->data = value;
-        if (head->data.prior < temp->data.prior) {
+        if (first_o->data.prior < temp->data.prior) {
           temp->next = first;
           first_o = temp;
           return;
