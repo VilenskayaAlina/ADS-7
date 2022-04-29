@@ -12,7 +12,7 @@ class TPQueue {
   ITEM* first_o;
 
  public:
-  TPQueue():first_o(nullptr){};
+  TPQueue():first_o(nullptr){}
 
   void push(T value) {
     ITEM* first = first_o;
@@ -54,7 +54,7 @@ class TPQueue {
         first_o = first->next;
         return extract;
     } else {
-        throw "Empty!";;
+        throw "Empty!";
     }
   }
 };
