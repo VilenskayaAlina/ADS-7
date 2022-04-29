@@ -19,21 +19,21 @@ class TPQueue {
     if (first == nullptr) {
       first = new ITEM;
       first_o = first;
-      first->value = data;
+      first->data = value;
       first->next = nullptr;
     } else {
         ITEM* temp = new ITEM;
-        temp->value = data;
-        if (head->value.prior < temp->value.prior) {
+        temp->data = value;
+        if (head->data.prior < temp->data.prior) {
           temp->next = first;
           first_o = temp;
           return;
         }
         while (first != nullptr) {
-          prov1 = first->value.prior;
-          prov2 = temp->value.prior;
+          prov1 = first->data.prior;
+          prov2 = temp->data.prior;
           prov3 = first->next; //соответствие
-          if ((prov1 == prov2 && (prov3 == nullptr || prov1 < prov2)) || (prov1 > prov2 && ((prov3 != nullptr && prov3->value.prior < prov2) || (prov3 == nullptr)))) {
+          if ((prov1 == prov2 && (prov3 == nullptr || prov1 < prov2)) || (prov1 > prov2 && ((prov3 != nullptr && prov3->data.prior < prov2) || (prov3 == nullptr)))) {
             temp->next = first->next;
             first->next = temp;
             return;
